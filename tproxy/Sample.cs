@@ -11,9 +11,9 @@ using Titanium.Web.Proxy.Models;
 
 namespace tproxy
 {
-    class Sample
+    public class Sample
     {
-        void Main(string[] args)
+        public void Main(string[] args)
         {
             var proxyServer = new ProxyServer();
 
@@ -47,7 +47,6 @@ namespace tproxy
             // An explicit endpoint is where the client knows about the existence of a proxy
             // So client sends request in a proxy friendly manner
             proxyServer.AddEndPoint(explicitEndPoint);
-            proxyServer.UpStreamEndPoint = new IPEndPoint(IPAddress.Parse("192.168.12.100"), 0);
             proxyServer.Start();
 
             // Transparent endpoint is useful for reverse proxy (client is not aware of the existence of proxy)
@@ -120,7 +119,7 @@ namespace tproxy
 
         public async Task OnRequest(object sender, SessionEventArgs e)
         {
-            Console.WriteLine(e.HttpClient.Request.Url);
+            Console.WriteLine("ddddd: " + e.HttpClient.Request.Url);
 
             // read request headers
             var requestHeaders = e.HttpClient.Request.Headers;

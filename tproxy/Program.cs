@@ -8,6 +8,11 @@ namespace tproxy
     {
         static void Main(string[] args)
         {
+            var d = new Sample();
+            d.Main(new string[] { "" });
+
+            return;
+
             var nics = new List<ZNic>();
             // Get all network interfaces
             foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
